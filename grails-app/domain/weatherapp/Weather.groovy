@@ -9,6 +9,7 @@ class Weather {
     String country
     Date lastUpdated
 
+
     static constraints = {
     }
 }
