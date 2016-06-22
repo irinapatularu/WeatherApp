@@ -13,8 +13,11 @@
 
 <body>
 
-fdgfdgfd
-gfdhfgdh
-hfdhd
+<p>${location}</p>
+<p>${temp}</p>
+<p>${humidity}</p>
+<p>${country}</p>
+<p>${description}</p>
+
 </body>
 </html>
