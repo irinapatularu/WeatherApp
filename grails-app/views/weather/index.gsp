@@ -21,5 +21,11 @@
      <g:submitButton name="save" value="Save"/>
 </g:form>
 
+<p>${location}</p>
+<p>${temp}</p>
+<p>${description}</p>
+<p>${humidity}</p>
+<p>${country}</p>
+
 </body>
 </html>

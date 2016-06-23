@@ -1,9 +1,9 @@
 dataSource {
     pooled = true
     jmxExport = true
-    driverClassName: 'org.postgresql.Driver'
-    username: 'web'
-    password: 'cucu123'
+    driverClassName= 'org.postgresql.Driver'
+    username= 'web'
+    password= 'cucu123'
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -18,8 +18,8 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate: update
-            url: "jdbc:postgresql://localhost:5432/weather"
+            dbCreate = "update"
+            url= "jdbc:postgresql://localhost:5433/weather"
         }
     }
     test {

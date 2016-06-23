@@ -11,5 +11,6 @@ class Weather {
 
 
     static constraints = {
+        description nullable: true
     }
 }
