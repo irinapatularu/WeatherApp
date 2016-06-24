@@ -8,24 +8,38 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
+    <link rel="stylesheet" href="../css/style.css" >
     <title>
-
     </title>
 </head>
 
 <body>
+<section class="banner">
+    <div class="container">
+        <div class="search">
+        <g:form class="form" controller="Weather" action="save">
+            <g:textField class="textarea" name="location"/><br/>
+            <g:submitButton class="button" name="save" value="Get Weather"/>
+        </g:form>
+        </div>
 
-<g:form controller="Weather" action="save">
-     <label>First Name: </label>
-     <g:textField name="location"/><br/>
-     <g:submitButton name="save" value="Save"/>
-</g:form>
+        <div class="info">
+            <div class="card">
+                <h2>Country: ${country}</h2>
+            </div>
 
-<p>${location}</p>
-<g:formatNumber number="${temp}" type="number" maxFractionDigits="0"/>
-<p>${humidity}</p>
-<p>${country}</p>
-<p>${description}</p>
+            <div class="card">
+                <h2>Description: ${description}</h2>
+            </div>
 
+            <div class="card">
+                <h2>Temperature: <g:formatNumber number="${temp}" type="number" maxFractionDigits="0"/></h2>
+            </div>
+
+            <div class="card">
+                <h2>Humidity: ${humidity}</h2>
+            </div>
+        </div>
+</section>
 </body>
 </html>
