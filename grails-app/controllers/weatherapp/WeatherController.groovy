@@ -19,8 +19,7 @@ class WeatherController {
             }
 
             if (response) {
-
-                render(view: 'index', model: ['location':response.location, 'temp':response.temp, 'humidity':response.humidity, 'description':response.description, 'country':response.country])
+                render(view: 'index', model: ['location':response.location, 'temp':response.temp, 'humidity':response.humidity,  'country':response.country, 'description':response.description])
             } else {
                 render "error"
             }

@@ -22,10 +22,10 @@
 </g:form>
 
 <p>${location}</p>
-<p>${temp}</p>
-<p>${description}</p>
+<g:formatNumber number="${temp}" type="number" maxFractionDigits="0"/>
 <p>${humidity}</p>
 <p>${country}</p>
+<p>${description}</p>
 
 </body>
 </html>

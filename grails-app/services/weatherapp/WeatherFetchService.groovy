@@ -16,6 +16,7 @@ class WeatherFetchService {
     def rest
 
     def APPID = "fa1222b1360cebd73d2990a3c9491f4d"
+    def unit = "&units=metric"
 
     def getDataByZip(String zipCode){
 
@@ -32,7 +33,7 @@ class WeatherFetchService {
         if (variable == null) {
             //nu exista in baza de date, se adauga intrare noua
 
-            def myUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid="
+            def myUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + location + unit + "&appid="
             myUrl = myUrl + APPID
 
             def values = getData(myUrl)
@@ -46,7 +47,7 @@ class WeatherFetchService {
 
             if (duration.hours >= 1) {
                 //e mai mult de o ora intre ele
-                def myUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid="
+                def myUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + location + unit + "&appid="
                 myUrl = myUrl + APPID
 
                 def values = [:]
@@ -57,8 +58,8 @@ class WeatherFetchService {
                 variable.temp = resp.body.main.temp
                 variable.humidity = resp.body.main.humidity
                 variable.country = resp.body.sys.country
-                variable.description = resp.body.weather.description
                 variable.location = resp.body.name
+                variable.description = resp.body.weather.description
                 return values
             }
             else {
@@ -67,8 +68,8 @@ class WeatherFetchService {
                 values.location = variable.location
                 values.humidity = variable.humidity
                 values.temp = variable.temp
-                values.description = variable.description
                 values.country = variable.country
+                values.description = variable.description
                 return values
             }
 
@@ -87,18 +88,17 @@ class WeatherFetchService {
             values['temp'] = resp.body.main.temp
             values['humidity'] = resp.body.main.humidity
             values['country'] = resp.body.sys.country
-            values['description'] = resp.body.weather.description
             values['location'] = resp.body.name
+            values['description'] = resp.body.weather.description
 
 
             Weather weather = new Weather()
             weather.location = values.location
             weather.humidity = values.humidity
             weather.temp = values.temp
-            weather.description = values.description
             weather.country = values.country
+            weather.description = values.description
             weather.lastUpdated = new Date()
-
             weather.save(flush: true, failOnError: true, validate: true)
         }
         return values
